@@ -1,0 +1,35 @@
+{
+ "manifest_version": 2,
+ "name": "9gag-pics",
+ "short_name": "9gag-pics",
+ "homepage_url": "http://beshur.github.io/9gag-pics-only",
+ "version": "1.0.0",
+ "author": [
+  {
+   "name": "Alex Buznik",
+   "email": "shu@buznik.net"
+  }
+ ],
+ "description": "A free Google Chrome extension to hide non-static posts on 9gag.",
+  "icons": {
+    "128": "img/icon128.png"
+   },
+ "content_scripts": [
+  {
+   "matches": [
+    "*://*/*"
+   ],
+   "js": [
+    "content.js"
+   ]
+  }
+ ],
+ "permissions": [
+  "http://9gag.com/",
+  "https://9gag.com/"
+ ],
+ "browser_action": {
+  "default_title": "9gag-pics",
+  "default_icon": "img/icon128.png"
+ }
+}
