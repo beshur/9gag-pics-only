@@ -17,7 +17,7 @@
  "content_scripts": [
   {
    "matches": [
-    "*://*/*"
+    "*://*.9gag.com/*"
    ],
    "js": [
     "content.js"
