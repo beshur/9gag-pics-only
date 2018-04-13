@@ -1,4 +1,4 @@
-/* StoPlay Content JS */
+/* 9gag-pics-only Content JS */
 
 class NineGagPics {
 
