@@ -8,6 +8,7 @@ class NineGagPics {
 
         this.LOG = '9GAG_PICS';
         this.postSelector = '.post-view';
+        this.deferTimer = null;
 
         this.setScrollHandler();
     }
@@ -18,11 +19,20 @@ class NineGagPics {
     }
 
     onScroll(event) {
-        console.log(this.LOG, 'onScroll', document.querySelectorAll(this.postSelector));
 
+        if (this.deferTimer) {
+            clearTimeout(this.deferTimer);
+        }
+        this.deferTimer = setTimeout(this.hideByPostSelector.bind(this), 100);
+    }
+
+    hideByPostSelector() {
+        console.log(this.LOG, 'hideByPostSelector');
         document.querySelectorAll(this.postSelector).forEach(function(item) {
             item.closest('article').style.display = "none"
         });
+
+        clearTimeout(this.deferTimer);
     }
 }
 
