@@ -9,11 +9,15 @@ class NineGagPics {
         this.LOG = '9GAG_PICS';
         this.postSelector = '.post-view';
         this.deferTimer = null;
+        this.singlePost = !!document.querySelectorAll('#individual-post').length;
 
         this.setScrollHandler();
     }
 
     setScrollHandler() {
+        if (this.singlePost) {
+            return;
+        }
         console.info(this.LOG, 'setScrollHandler');
         window.addEventListener('scroll', this.onScroll.bind(this));
     }
