@@ -1,41 +1,39 @@
 {
-  "manifest_version": 2,
-  "name": "9gag-pics",
-  "short_name": "9gag-pics",
-  "homepage_url": "http://beshur.github.io/9gag-pics-only",
-  "version": "1.0.4",
-  "author": [
-    {
-     "name": "Alex Buznik",
-     "email": "shu@buznik.net"
-   }
+ "manifest_version": 2,
+ "name": "9gag-pics",
+ "short_name": "9gag-pics",
+ "homepage_url": "http://beshur.github.io/9gag-pics-only",
+ "version": "1.0.5",
+ "author": [
+  {
+   "name": "Alex Buznik",
+   "email": "shu@buznik.net"
+  }
  ],
-  "description": "A free Google Chrome extension to hide non-static posts on 9gag.",
-  "icons": {
-    "128": "img/icon128.png"
-  },
-  "content_scripts": [
-    {
-     "matches": [
-      "*://*.9gag.com/*"
-    ],
-     "js": [
-      "content.js"
-    ]
-   }
- ],
-  "background": {
-    "scripts": [
-     "background.js"
+ "description": "A free Google Chrome extension to hide non-static posts on 9gag.",
+ "icons": {
+  "128": "img/icon128.png"
+ },
+ "content_scripts": [
+  {
+   "matches": [
+    "*://*.9gag.com/*"
+   ],
+   "js": [
+    "content.js"
    ]
-  },
-  "browser_action": {
-  },
-
-  "permissions": [
-    "http://9gag.com/",
-    "https://9gag.com/",
-    "tabs",
-    "storage"
+  }
+ ],
+ "background": {
+  "scripts": [
+   "background.js"
   ]
+ },
+ "browser_action": {},
+ "permissions": [
+  "http://9gag.com/",
+  "https://9gag.com/",
+  "tabs",
+  "storage"
+ ]
 }
