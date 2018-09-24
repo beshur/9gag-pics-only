@@ -20,7 +20,7 @@ class NineGagPicsBackground {
       chrome.storage.local.get(option_keys, (result) => {
         console.log('Storage value currently is ', result);
         if (typeof result.active !== 'undefined') {
-          this.onActiveOptionUpdated(result.key);
+          this.onActiveOptionUpdated(result.active);
         }
         resolve();
       });
