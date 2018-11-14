@@ -12,6 +12,8 @@ class NineGagPics {
         this.singlePost = !!document.querySelectorAll('#individual-post').length;
         this.active = true;
 
+        this.getNativeAds = this.getNativeAds.bind(this);
+
         console.info(this.LOG, 'Init');
         this.setScrollHandler();
         this.registerInBackground();
@@ -60,13 +62,26 @@ class NineGagPics {
         this.deferTimer = setTimeout(this.hideByPostSelector.bind(this), 100);
     }
 
+    hideArticle(item) {
+        if (!item) {
+            return;
+        }
+        return item.closest('article').style.display = "none";
+    }
+
+    getNativeAds() {
+        let articles = [...document.querySelectorAll('.list-stream article')];
+        let articles_no_ids = articles.filter(item => !item.getAttribute('id'));
+
+        return articles_no_ids;
+    }
     hideByPostSelector() {
         if (this.singlePost || !this.active) {
             return;
         }
-        document.querySelectorAll(this.postSelector).forEach(function(item) {
-            item.closest('article').style.display = "none"
-        });
+        let nonImagePosts = [...document.querySelectorAll(this.postSelector)];
+        let nativeAds = this.getNativeAds();
+        nonImagePosts.concat(nativeAds).forEach(this.hideArticle.bind(this));
 
         clearTimeout(this.deferTimer);
     }
