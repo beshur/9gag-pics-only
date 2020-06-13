@@ -66,15 +66,20 @@ class NineGagPics {
         if (!item) {
             return;
         }
-        return item.closest('article').style.display = "none";
+        let itemToDelete = item.closest('article');
+        if (!itemToDelete) {
+            itemToDelete = item;
+        }
+        return itemToDelete.remove();
     }
 
     getNativeAds() {
-        let articles = [...document.querySelectorAll('.list-stream article')];
+        let articles = [...document.querySelectorAll('.list-stream article, .inline-ad-container')];
         let articles_no_ids = articles.filter(item => !item.getAttribute('id'));
 
         return articles_no_ids;
     }
+
     hideByPostSelector() {
         if (this.singlePost || !this.active) {
             return;
