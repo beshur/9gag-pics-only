@@ -1,7 +1,10 @@
 {
   "name": "9gag-pics-build",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "author": "Alex Buznik",
+  "scripts": {
+    "build": "grunt build"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.5",
